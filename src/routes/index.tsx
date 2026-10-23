@@ -1,24 +1,67 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { ClientOnly, createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense, useState } from "react";
+import { Cursor, Loader, Sky, SmoothScroll } from "@/components/space/Experience";
+import { About, Certifications, Contact, ExperienceSection, Footer, Hero, Navbar, Projects, Skills } from "@/components/space/Sections";
+import { profile, socials } from "@/lib/portfolio";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const SpaceScene = lazy(() => import("@/components/space/SpaceScene"));
+
+const title = "Khushhal Goyal — AI & Data Science Engineer";
+const description = "Portfolio of Khushhal Goyal: AI & Data Science engineer, full stack developer and ML enthusiast building immersive web experiences.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "profile" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: profile.name,
+          jobTitle: "AI & Data Science Engineer",
+          email: `mailto:${profile.email}`,
+          url: profile.site,
+          alumniOf: "JECRC University",
+          sameAs: Object.values(socials),
+        }),
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [ready, setReady] = useState(false);
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Sky />
+      <ClientOnly fallback={null}>
+        <Loader onDone={() => setReady(true)} />
+        <SmoothScroll />
+        <Cursor />
+        <Suspense fallback={null}>{ready && <SpaceScene />}</Suspense>
+      </ClientOnly>
+      <Navbar />
+      <main className="relative z-10">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <ExperienceSection />
+        <Certifications />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
