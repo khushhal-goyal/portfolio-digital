@@ -70,7 +70,7 @@ export function Hero() {
       </h1>
       <div className="mt-4 h-10 overflow-hidden font-display text-2xl md:text-3xl" aria-live="polite">
         <AnimatePresence mode="wait">
-          <motion.p key={roles[i]} className="text-gradient-cosmic font-bold" initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -40, opacity: 0 }} transition={{ type: "spring", stiffness: 120, damping: 16 }}>
+          <motion.p key={i} className="text-gradient-cosmic font-bold" initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -40, opacity: 0 }} transition={{ type: "spring", stiffness: 120, damping: 16 }}>
             {roles[i]}
           </motion.p>
         </AnimatePresence>
@@ -125,7 +125,7 @@ export function About() {
 
 export function Skills() {
   const [sel, setSel] = useState(0);
-  const p = planets[sel];
+  const p = planets[sel] ?? planets[0]!;
   return (
     <section id="skills" className={cn("zone-dark", wrap)}>
       <SectionTitle kicker="02 — Skill System" title="A solar system of craft." />
