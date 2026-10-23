@@ -26,9 +26,9 @@ function AICore({ progress }: { progress: React.MutableRefObject<number> }) {
     g.rotation.y += dt * 0.25;
     g.rotation.x = THREE.MathUtils.damp(g.rotation.x, y * 0.4, 4, dt);
     g.position.x = THREE.MathUtils.damp(g.position.x, x * 0.6, 3, dt);
-    g.position.y = THREE.MathUtils.damp(g.position.y, progress.current * 14, 3, dt);
+    g.position.y = THREE.MathUtils.damp(g.position.y, 1.3 + progress.current * 14, 3, dt);
     const pulse = 1 + Math.sin(state.clock.elapsedTime * 2) * 0.04;
-    g.scale.setScalar(pulse);
+    g.scale.setScalar(pulse * 0.8);
     if (shell.current) shell.current.rotation.z -= dt * 0.4;
     if (ring.current) ring.current.rotation.z += dt * 0.6;
   });

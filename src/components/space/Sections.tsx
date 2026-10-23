@@ -104,8 +104,8 @@ export function About() {
         <ol className="relative border-l line-zone pl-8">
           {timeline.map((t, k) => (
             <Reveal key={t.title} delay={k * 0.08} className="mb-10 last:mb-0">
-              <li>
-                <span className="absolute -left-[5px] mt-1.5 h-2.5 w-2.5 rounded-full bg-cosmic glow-cosmic" />
+              <li className="relative">
+                <span className="absolute -left-[37px] top-1 h-2.5 w-2.5 rounded-full bg-cosmic glow-cosmic" />
                 <p className="font-mono text-xs text-cosmic">{t.year}</p>
                 <h3 className="mt-1 font-display text-xl font-bold">{t.title}</h3>
                 <p className="text-sm text-soft">{t.place} · {t.note}</p>
