@@ -6,7 +6,7 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-export default defineConfig({
+const lovableConfig = defineConfig({
   vite: {
     build: {
       rolldownOptions: {
@@ -36,3 +36,22 @@ export default defineConfig({
     server: { entry: "server" },
   },
 });
+
+export default async (env: Parameters<typeof lovableConfig>[0]) => {
+  const config = await lovableConfig(env);
+
+  return {
+    ...config,
+    resolve: { ...config.resolve, tsconfigPaths: true },
+    plugins: config.plugins?.filter(
+      (plugin) =>
+        !(
+          plugin &&
+          typeof plugin === "object" &&
+          !Array.isArray(plugin) &&
+          "name" in plugin &&
+          plugin.name === "vite-tsconfig-paths"
+        ),
+    ),
+  };
+};
