@@ -1,13 +1,24 @@
 import { ClientOnly, createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useState } from "react";
 import { Cursor, Loader, Sky, SmoothScroll } from "@/components/space/Experience";
-import { About, Certifications, Contact, ExperienceSection, Footer, Hero, Navbar, Projects, Skills } from "@/components/space/Sections";
+import {
+  About,
+  Certifications,
+  Contact,
+  ExperienceSection,
+  Footer,
+  Hero,
+  Navbar,
+  Projects,
+  Skills,
+} from "@/components/space/Sections";
 import { profile, socials } from "@/lib/portfolio";
 
 const SpaceScene = lazy(() => import("@/components/space/SpaceScene"));
 
 const title = "Khushhal Goyal — AI & Data Science Engineer";
-const description = "Portfolio of Khushhal Goyal: AI & Data Science engineer, full stack developer and ML enthusiast building immersive web experiences.";
+const description =
+  "Portfolio of Khushhal Goyal: AI & Data Science engineer, full stack developer and ML enthusiast building immersive web experiences.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,9 +28,6 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "profile" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: title },
-      { name: "twitter:description", content: description },
     ],
     scripts: [
       {

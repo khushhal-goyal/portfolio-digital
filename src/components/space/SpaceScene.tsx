@@ -36,7 +36,15 @@ function AICore({ progress }: { progress: React.MutableRefObject<number> }) {
     <group ref={group}>
       <mesh>
         <icosahedronGeometry args={[1.2, 32]} />
-        <MeshDistortMaterial color={CYAN} emissive={CYAN} emissiveIntensity={0.6} roughness={0.15} metalness={0.4} distort={0.35} speed={2} />
+        <MeshDistortMaterial
+          color={CYAN}
+          emissive={CYAN}
+          emissiveIntensity={0.6}
+          roughness={0.15}
+          metalness={0.4}
+          distort={0.35}
+          speed={2}
+        />
       </mesh>
       <mesh ref={shell}>
         <icosahedronGeometry args={[1.75, 1]} />
@@ -51,14 +59,32 @@ function AICore({ progress }: { progress: React.MutableRefObject<number> }) {
   );
 }
 
-function Planet({ pos, r, color, speed }: { pos: [number, number, number]; r: number; color: string; speed: number }) {
+function Planet({
+  pos,
+  r,
+  color,
+  speed,
+}: {
+  pos: [number, number, number];
+  r: number;
+  color: string;
+  speed: number;
+}) {
   const ref = useRef<THREE.Mesh>(null);
-  useFrame((_, d) => { if (ref.current) ref.current.rotation.y += d * speed; });
+  useFrame((_, d) => {
+    if (ref.current) ref.current.rotation.y += d * speed;
+  });
   return (
     <Float speed={0.6} floatIntensity={1.2}>
       <mesh ref={ref} position={pos}>
         <sphereGeometry args={[r, 48, 48]} />
-        <meshStandardMaterial color={color} roughness={0.7} metalness={0.15} emissive={color} emissiveIntensity={0.08} />
+        <meshStandardMaterial
+          color={color}
+          roughness={0.7}
+          metalness={0.15}
+          emissive={color}
+          emissiveIntensity={0.08}
+        />
       </mesh>
     </Float>
   );
@@ -70,9 +96,12 @@ function Nebula({ progress }: { progress: React.MutableRefObject<number> }) {
     const n = 1800;
     const p = new Float32Array(n * 3);
     const c = new Float32Array(n * 3);
-    const a = new THREE.Color("#38bdf8"), b = new THREE.Color("#6d28d9"), tmp = new THREE.Color();
+    const a = new THREE.Color("#38bdf8"),
+      b = new THREE.Color("#6d28d9"),
+      tmp = new THREE.Color();
     for (let i = 0; i < n; i++) {
-      const t = Math.random() * Math.PI * 2, rad = 6 + Math.random() * 14;
+      const t = Math.random() * Math.PI * 2,
+        rad = 6 + Math.random() * 14;
       p[i * 3] = Math.cos(t) * rad;
       p[i * 3 + 1] = (Math.random() - 0.5) * 6 - 20;
       p[i * 3 + 2] = Math.sin(t) * rad - 15;
@@ -87,11 +116,22 @@ function Nebula({ progress }: { progress: React.MutableRefObject<number> }) {
   useFrame((_, d) => {
     if (!ref.current) return;
     ref.current.rotation.y += d * 0.02;
-    (ref.current.material as THREE.PointsMaterial).opacity = THREE.MathUtils.clamp((progress.current - 0.3) * 2, 0, 0.7);
+    (ref.current.material as THREE.PointsMaterial).opacity = THREE.MathUtils.clamp(
+      (progress.current - 0.3) * 2,
+      0,
+      0.7,
+    );
   });
   return (
     <points ref={ref} geometry={geo}>
-      <pointsMaterial size={0.09} vertexColors transparent opacity={0} depthWrite={false} blending={THREE.AdditiveBlending} />
+      <pointsMaterial
+        size={0.09}
+        vertexColors
+        transparent
+        opacity={0}
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
+      />
     </points>
   );
 }
@@ -121,7 +161,11 @@ function Rig({ progress }: { progress: React.MutableRefObject<number> }) {
 export default function SpaceScene() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0" aria-hidden>
-      <Canvas dpr={[1, 1.75]} camera={{ position: [0, 0, 7], fov: 55 }} gl={{ antialias: true, alpha: true }}>
+      <Canvas
+        dpr={[1, 1.75]}
+        camera={{ position: [0, 0, 7], fov: 55 }}
+        gl={{ antialias: true, alpha: true }}
+      >
         <SceneContents />
       </Canvas>
     </div>
@@ -141,7 +185,14 @@ function SceneContents() {
       <Planet pos={[-6, -9, -6]} r={1.4} color="#3b5bdb" speed={0.1} />
       <Planet pos={[7, -16, -10]} r={2.4} color="#1e293b" speed={0.05} />
       <Planet pos={[-5, -25, -4]} r={0.8} color="#7dd3fc" speed={0.2} />
-      <Sparkles count={150} scale={[20, 40, 10]} position={[0, -15, -2]} size={2} speed={0.3} color="#cbd5e1" />
+      <Sparkles
+        count={150}
+        scale={[20, 40, 10]}
+        position={[0, -15, -2]}
+        size={2}
+        speed={0.3}
+        color="#cbd5e1"
+      />
     </>
   );
 }

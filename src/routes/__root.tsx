@@ -79,17 +79,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Khushhal Goyal — Portfolio" },
-      { name: "description", content: "AI & Data Science Engineer, Full Stack Developer and ML Enthusiast." },
+      {
+        name: "description",
+        content: "AI & Data Science Engineer, Full Stack Developer and ML Enthusiast.",
+      },
       { name: "author", content: "Khushhal Goyal" },
       { property: "og:title", content: "Khushhal Goyal — Portfolio" },
-      { property: "og:description", content: "AI & Data Science Engineer, Full Stack Developer and ML Enthusiast." },
+      {
+        property: "og:description",
+        content: "AI & Data Science Engineer, Full Stack Developer and ML Enthusiast.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,

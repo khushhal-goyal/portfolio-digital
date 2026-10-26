@@ -24,11 +24,9 @@ export const roles = [
 ];
 
 export const socials = {
-  github: "https://github.com/khushhalgoyal",
-  linkedin: "https://linkedin.com/in/khushhalgoyal",
-  twitter: "https://twitter.com/khushhalgoyal",
-  instagram: "https://instagram.com/khushhalgoyal",
-  youtube: "https://youtube.com/@khushhalgoyal",
+  github: "https://github.com/khushhal-goyal",
+  linkedin: "https://linkedin.com/in/khushhal-goyal",
+  instagram: "https://instagram.com/khushhal.goyal",
   medium: "https://medium.com/@khushhalgoyal9",
   devto: "https://dev.to/khushhalgoyal",
 };
@@ -41,8 +39,18 @@ export const stats = [
 ];
 
 export const timeline = [
-  { year: "2026 – 2029", title: "B.Tech CSE (AI & Data Science)", place: "JECRC University, Jaipur", note: "2nd-year lateral entry · course transferred" },
-  { year: "2025 – 2026", title: "First-year Engineering", place: "RIET Jaipur", note: "8.0 CGPA in Semester 1" },
+  {
+    year: "2026 – 2029",
+    title: "B.Tech CSE (AI & Data Science)",
+    place: "JECRC University, Jaipur",
+    note: "2nd-year lateral entry · course transferred",
+  },
+  {
+    year: "2025 – 2026",
+    title: "First-year Engineering",
+    place: "RIET Jaipur",
+    note: "8.0 CGPA in Semester 1",
+  },
   { year: "Class XII", title: "Senior Secondary", place: "PSEB", note: "77.00%" },
   { year: "Class X", title: "Secondary", place: "CBSE", note: "84.8%" },
 ];
@@ -54,21 +62,94 @@ export const achievements = [
 ];
 
 export const planets = [
-  { name: "AI / ML", size: 150, hue: 230, description: "Designing learning systems and data-driven models.", experience: "2025 – present", projects: "Neural Analytics Engine", stack: ["Artificial Intelligence", "Machine Learning", "DSA"] },
-  { name: "Python & Data", size: 125, hue: 200, description: "Wrangling, analysing and visualising datasets.", experience: "2025 – present", projects: "Neural Analytics Engine", stack: ["Python", "NumPy", "Pandas"] },
-  { name: "Frontend", size: 140, hue: 250, description: "Fast, accessible, beautiful interfaces.", experience: "2025 – present", projects: "Space OS · Web Architecture", stack: ["React.js", "Next.js", "TypeScript", "JavaScript", "HTML5/CSS3", "Tailwind CSS"] },
-  { name: "3D & Motion", size: 110, hue: 185, description: "Real-time WebGL worlds and fluid motion.", experience: "2025 – present", projects: "Cinematic Space OS", stack: ["Three.js", "React Three Fiber", "Framer Motion"] },
-  { name: "CS Core", size: 115, hue: 270, description: "The fundamentals behind every system.", experience: "Coursework", projects: "Academic", stack: ["Operating Systems", "Computer Networks", "Git/GitHub"] },
+  {
+    name: "AI / ML",
+    size: 150,
+    hue: 230,
+    description: "Designing learning systems and data-driven models.",
+    experience: "2025 – present",
+    projects: "Neural Analytics Engine",
+    stack: ["Artificial Intelligence", "Machine Learning", "DSA"],
+  },
+  {
+    name: "Python & Data",
+    size: 125,
+    hue: 200,
+    description: "Wrangling, analysing and visualising datasets.",
+    experience: "2025 – present",
+    projects: "Neural Analytics Engine",
+    stack: ["Python", "NumPy", "Pandas"],
+  },
+  {
+    name: "Frontend",
+    size: 140,
+    hue: 250,
+    description: "Fast, accessible, beautiful interfaces.",
+    experience: "2025 – present",
+    projects: "Space OS · Web Architecture",
+    stack: ["React.js", "Next.js", "TypeScript", "JavaScript", "HTML5/CSS3", "Tailwind CSS"],
+  },
+  {
+    name: "3D & Motion",
+    size: 110,
+    hue: 185,
+    description: "Real-time WebGL worlds and fluid motion.",
+    experience: "2025 – present",
+    projects: "Cinematic Space OS",
+    stack: ["Three.js", "React Three Fiber", "Framer Motion"],
+  },
+  {
+    name: "CS Core",
+    size: 115,
+    hue: 270,
+    description: "The fundamentals behind every system.",
+    experience: "Coursework",
+    projects: "Academic",
+    stack: ["Operating Systems", "Computer Networks", "Git/GitHub"],
+  },
 ];
 
 export const projects = [
-  { name: "Cinematic Space OS & Interactive Portfolio", description: "A luxury, futuristic AI operating system themed web experience featuring real-time Three.js space environments, fluid cursor physics, and seamless page transitions.", stack: ["Next.js 15", "React 19", "TypeScript", "Three.js", "React Three Fiber", "Framer Motion", "Tailwind CSS"] },
-  { name: "AI Neural Analytics Engine", description: "An intelligent data dashboard leveraging machine learning algorithms to visualize complex datasets with real-time inference and responsive charting.", stack: ["Python", "Pandas", "NumPy", "Next.js", "Tailwind CSS", "FastAPI"] },
-  { name: "Modern High-Performance Web Architecture", description: "A minimalist, high-converting digital platform built with dynamic theme transitions, smooth Lenis scrolling, and micro-interactions.", stack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"] },
-].map((p) => ({ ...p, github: "https://github.com/khushhalgoyal", live: "https://khushhalgoyal.vercel.app" }));
+  {
+    name: "Cinematic Space OS & Interactive Portfolio",
+    description:
+      "A luxury, futuristic AI operating system themed web experience featuring real-time Three.js space environments, fluid cursor physics, and seamless page transitions.",
+    stack: [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Three.js",
+      "React Three Fiber",
+      "Framer Motion",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    name: "AI Neural Analytics Engine",
+    description:
+      "An intelligent data dashboard leveraging machine learning algorithms to visualize complex datasets with real-time inference and responsive charting.",
+    stack: ["Python", "Pandas", "NumPy", "Next.js", "Tailwind CSS", "FastAPI"],
+  },
+  {
+    name: "Modern High-Performance Web Architecture",
+    description:
+      "A minimalist, high-converting digital platform built with dynamic theme transitions, smooth Lenis scrolling, and micro-interactions.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+  },
+].map((p) => ({
+  ...p,
+  github: "https://github.com/khushhal-goyal",
+  live: "https://khushhalgoyal.vercel.app",
+}));
 
 export const experience = [
-  { company: "Academic & Open Source Projects", role: "AI & Full Stack Developer", duration: "2025 – Present", description: "Engineering interactive full-stack applications, data-driven machine learning models, and modern responsive user interfaces with Next.js, TypeScript, and Three.js." },
+  {
+    company: "Academic & Open Source Projects",
+    role: "AI & Full Stack Developer",
+    duration: "2025 – Present",
+    description:
+      "Engineering interactive full-stack applications, data-driven machine learning models, and modern responsive user interfaces with Next.js, TypeScript, and Three.js.",
+  },
 ];
 
 export const certifications = [
